@@ -1,0 +1,19 @@
+<h3 class="text-center">{{ titre }}</h3>
+
+<p class="form-group">
+	<label>Ville</label>
+	<input type="text" ng-model="maVille" class="form-control">
+</p>
+<p class="text-center">
+	<button ng-click="chercher()" class="btn btn-purple">Chercher</button>
+</p>
+<p ng-if="resultat">
+	<ul class="list-group">
+		<li  class="list-group-item" ng-repeat="ville in liste" ng-click="afficher(ville)">
+			{{ ville.nom }} ({{ ville.departement.nom }})
+		</li>
+	</ul>
+</p>
+<p class="text-center">
+	<button ng-click="trouver()" class="btn btn-purple">Trouvez-moi</button>
+</p>

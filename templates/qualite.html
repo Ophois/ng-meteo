@@ -1,0 +1,33 @@
+<h3 class="text-center">{{ titre }}</h3>
+<h4 class="text-center">{{ ville }}</h4>
+
+<ul ng-if="reponse" class="list-group">
+  <li class="list-group-item">
+    Index de qualité {{ reponse.list[0].main.aqi }}<br>
+    <em>1: good, 2: correct, 3: moyen, 4: pauvre, 5: très pauvre</em>
+  </li>
+  <li class="list-group-item">
+    Monoxyde de Carbone: {{ reponse.list[0].components.co }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Monoxyde d'azote: {{ reponse.list[0].components.no }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Dioxyde d'azote: {{ reponse.list[0].components.no2 }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Ozone: {{ reponse.list[0].components.o3 }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Dioxyde de soufre: {{ reponse.list[0].components.so2 }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Particules fines: {{ reponse.list[0].components.pm2_5 }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Particules grossières: {{ reponse.list[0].components.pm10 }} µg/m<sup>3</sup>
+  </li>
+  <li class="list-group-item">
+    Amoniaque: {{ reponse.list[0].components.nh3 }} µg/m<sup>3</sup>
+  </li>
+</ul>

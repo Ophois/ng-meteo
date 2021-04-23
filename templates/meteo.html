@@ -1,0 +1,37 @@
+<h3 class="text-center">{{ titre }}</h3>
+<h4 class="text-center">{{ ville }}</h4>
+
+<ul ng-if="reponse" class="list-group">
+	<li class="list-group-item meteo">{{ reponse.current.weather[0].description | ucfirst }} </li>
+	<!-- icones numérotés de 01 à 44 à personnaliser -->
+	<li class="list-group-item meteo"><img ng-src="http://openweathermap.org/img/wn/{{reponse.current.weather[0].icon}}@2x.png" alt="{{ texte }}"></li>
+	<li class="list-group-item meteo">Température: {{ reponse.current.temp | number:1 }} °C</li>
+	<li class="list-group-item meteo">
+		Température ressentie: {{ reponse.current.feels_like | number:1 }} °C
+	</li>
+	<li class="list-group-item meteo">Pression atmosphérique: {{ reponse.current.pressure }} mb</li>
+	<li class="list-group-item meteo">Humidité: {{ reponse.current.humidity }}%</li>
+	<li class="list-group-item meteo">Nuages: {{ reponse.current.clouds }}%</li>
+	<li class="list-group-item meteo">vent: {{ reponse.current.wind_speed }} km/h 
+																		({{ reponse.current.wind_deg }})</li>
+	<li class="list-group-item meteo">Indice UV: {{ reponse.current.uvi | number:0 }}</li>
+</ul>
+<hr>
+<ul class="list-group" ng-repeat="prev in reponse.hourly | limitTo:12">
+	<li class="list-group-item meteo">{{prev.dt *1000 | date:'HH:mm'}}</li>
+	<li class="list-group-item meteo">{{ prev.weather[0].description | ucfirst }} </li>
+	<!-- icones numérotés de 01 à 44 à personnaliser -->
+	<li class="list-group-item meteo"><img ng-src="http://openweathermap.org/img/wn/{{prev.weather[0].icon}}@2x.png" alt="{{ texte }}"></li>
+	<li class="list-group-item meteo">Température: {{ prev.temp | number:1 }} °C</li>
+	<li class="list-group-item meteo">Température ressentie: {{ prev.feels_like | number:1 }} °C</li>
+	<li class="list-group-item meteo">Pression atmosphérique: {{ prev.pressure }} mb</li>
+	<li class="list-group-item meteo">Humidité: {{ prev.humidity }}%</li>
+	<li class="list-group-item meteo">Nuages: {{ prev.clouds }}%</li>
+	<li class="list-group-item meteo">vent: {{ prev.wind_speed }} km/h 
+																		({{ prev.wind_deg }})</li>
+	<li class="list-group-item meteo">Indice UV: {{ prev.uvi | number:0 }}</li>
+	<hr>
+</ul>
+
+
+<!-- pour lire le resultat d'un API en json <pre>{{ reponse | json }}</pre>-->
