@@ -1,7 +1,7 @@
 // service pour l'utilisation des API (réutilisable)
 app.service('meteoSvc', function($http){
 	//variables de configuration
-	this.apikey = "d2e33b810d399f2fb3d6791d161388ec";
+	this.apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 	this.fields = "departement,centre,contour";
 	this.language = 'fr';
 	this.details = true;
